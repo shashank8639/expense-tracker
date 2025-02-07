@@ -11,6 +11,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
 }
 
 #income {
@@ -34,7 +35,12 @@ button {
     display: inline-block;
     margin: 10px;
 }
-
+.before-expenses {
+    display: none;
+}
+.after-expenses {
+    display: block;
+}
 ul {
     list-style: none;
     padding: 0;
@@ -56,4 +62,13 @@ li.expense { border-color: red; }
 
 .after-salary {
     display: none;
+}
+.trans-block {
+    display: none;
+}
+.desc{
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    width: 350px;
 }

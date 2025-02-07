@@ -18,8 +18,11 @@ function updateUI() {
         balance = income - expenses; 
         const li = document.createElement("li");
         li.classList.add(transaction.amount > 0 ? "income" : "expense");
-        li.innerHTML = `${transaction.desc} ₹${transaction.amount}
-            <button onclick="deleteTransaction(${index})">❌</button>`;
+        li.innerHTML = `<div class="desc">
+        <div>${transaction.desc} </div>
+        <div>₹${transaction.amount}</div>
+        <div>  <button onclick="deleteTransaction(${index})">❌</button> </div>
+        </div>`;
         transactionsEl.appendChild(li);
     });
 
@@ -39,6 +42,10 @@ function addTransaction() {
         return;
     }
 
+    document.querySelector('.before-expenses').classList.add('after-expenses');
+    document.querySelector('.container').style.width = '800px';
+    document.querySelector('.trans-block').style.display = 'block';
+
     transactions.push({ desc, amount });
     updateUI();
     document.getElementById("desc").value = "";
@@ -54,12 +61,15 @@ function addIncome(){
         return;
     }
     document.querySelector('.salary-block').classList.add('after-salary');
+    document.querySelector('.trans-block').style.display = 'block';
 
     document.getElementById('income').textContent = amount;   
 }
 
 function deleteTransaction(index) {
     transactions.splice(index, 1);
+    if(transactions.length)
+        document.querySelector('.before-expenses').classList.remove('after-expenses');
     updateUI();
 }
 

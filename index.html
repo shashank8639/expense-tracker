@@ -9,31 +9,36 @@
 <body>
 
     <div class="container">
-        <h2>Expense Tracker</h2>
+        <div class="tracker">
+            <h2>Expense Tracker</h2>
 
-        <h3>Add Income</h3>
-        <div class="salary-block">
-            <input type="number" id="salary-amt" placeholder="Salary">
-            <button onclick="addIncome()">Add</button>
+            <div class="salary-block">
+                <h3>Add Income</h3>
+                <input type="number" id="salary-amt" placeholder="Salary">
+                <button onclick="addIncome()">Add</button>
+            </div>
+
+            
+            <div class="balance">
+                <h3>Balance: ₹<span id="balance">0</span></h3>
+            </div>
+
+            <div class="summary">
+                <p>Income: ₹<span id="income">0</span></p>
+                <p>Expenses: ₹<span id="expenses">0</span></p>
+            </div>
+
+           <div class="trans-block">
+                <h3>Add Transaction</h3>
+                <input type="text" id="desc" placeholder="Description">
+                <input type="number" id="amount" placeholder="Amount">
+                <button onclick="addTransaction()">Add</button>
+           </div>
         </div>
-
-        
-        <div class="balance">
-            <h3>Balance: ₹<span id="balance">0</span></h3>
+        <div class="before-expenses">
+            <h3>Transactions</h3>
+            <ul id="transactions"></ul>
         </div>
-
-        <div class="summary">
-            <p>Income: ₹<span id="income">0</span></p>
-            <p>Expenses: ₹<span id="expenses">0</span></p>
-        </div>
-
-        <h3>Add Transaction</h3>
-        <input type="text" id="desc" placeholder="Description">
-        <input type="number" id="amount" placeholder="Amount">
-        <button onclick="addTransaction()">Add</button>
-
-        <h3>Transactions</h3>
-        <ul id="transactions"></ul>
     </div>
 
     <script src="script.js"></script>
